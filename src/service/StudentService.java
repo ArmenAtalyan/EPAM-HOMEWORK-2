@@ -20,4 +20,18 @@ public class StudentService {
         }
         return map;
     }
+
+    public static Map<String, Integer> countStudentsNumber(List<Student> list){
+        Map<String, Integer> map = new HashMap<>();
+        for(int i = 0; i < list.size(); i++){
+            String temp = list.get(i).getFaculty();
+            if(map.containsKey(temp)){
+                Integer count = map.get(temp);
+                map.replace(temp, count+1);
+            }
+            else
+                map.put(temp, 1);
+        }
+        return map;
+    }
 }
