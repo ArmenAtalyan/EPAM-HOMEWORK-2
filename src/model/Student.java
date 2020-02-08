@@ -13,7 +13,7 @@ public class Student implements Comparable<Student> {
 
     @Override
     public int compareTo(Student o) {
-        return this.age - o.age;
+        return this.name.charAt(0) - o.name.charAt(0);
     }
 
     @Override
@@ -32,6 +32,6 @@ public class Student implements Comparable<Student> {
 
     @Override
     public String toString() {
-        return "Student - name = " + name + " age = " + age;
+        return "Student - name= " + name + " age= " + age;
     }
 }

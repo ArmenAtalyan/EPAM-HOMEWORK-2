@@ -13,7 +13,7 @@ public class Glasses implements Comparable<Glasses> {
 
     @Override
     public int compareTo(Glasses g) {
-        return this.price = g.price;
+        return this.price - g.price;
     }
 
     @Override
@@ -32,6 +32,6 @@ public class Glasses implements Comparable<Glasses> {
 
     @Override
     public String toString() {
-        return "Glass - type = " + type + " price " + price;
+        return "Glass - type= " + type + " price= " + price;
     }
 }
