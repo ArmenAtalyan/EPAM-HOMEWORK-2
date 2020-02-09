@@ -24,11 +24,11 @@ public class CustomSet<T extends Comparable<T>> {
             current.left = add(current.left, item);
         else if (current.data.compareTo(item) < 0)
             current.right = add(current.right, item);
-        size++;
         return current;
     }
 
     public void add(T item) {
+        size++;
         root = add(root, item);
     }
 
@@ -55,11 +55,11 @@ public class CustomSet<T extends Comparable<T>> {
                 current.right = remove(current.right, temp.data);
             }
         }
-        size--;
         return current;
     }
 
     public void remove(T item) {
+        size--;
         root = remove(root, item);
     }
 
@@ -72,16 +72,16 @@ public class CustomSet<T extends Comparable<T>> {
     }
 
     private boolean contains(Node current, T item) {
-        if (current == null)
+        if (current.data == null)
             return false;
         if (current.data.compareTo(item) == 0)
             return true;
         return current.data.compareTo(item) > 0 ?
-                contains(root.right, item) :
-                contains(root.left, item);
+                contains(current.right, item) :
+                contains(current.left, item);
     }
 
-    public boolean contains(T item) {
+    public boolean containsItem(T item) {
         return contains(root, item);
     }
 
@@ -92,9 +92,7 @@ public class CustomSet<T extends Comparable<T>> {
     private void InOrderTraverse(Node current) {
         if (current.left != null)
             InOrderTraverse(current.left);
-
         System.out.println(current.data);
-
         if (current.right != null)
             InOrderTraverse(current.right);
     }
@@ -103,13 +101,9 @@ public class CustomSet<T extends Comparable<T>> {
         if (root != null) {
             Node node = root;
             if (node.left == null && node.right == null)
+                System.out.println(node.data);
+            else
                 InOrderTraverse(node);
-            else {
-                if (node.left != null)
-                    InOrderTraverse(node.left);
-                if (node.right != null)
-                    InOrderTraverse(node.right);
-            }
         }
     }
 }
