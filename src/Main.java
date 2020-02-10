@@ -14,7 +14,7 @@ public class Main {
             add(g2);
             add(g3);
         }};
-//        glassList.remove(g2);
+        glassList.remove(g2);
         glassList.printSet();
         System.out.println("Number of glasses is " + glassList.getSize());
         System.out.println(glassList.containsItem(g1));

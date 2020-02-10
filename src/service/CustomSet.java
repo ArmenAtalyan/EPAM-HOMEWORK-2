@@ -33,27 +33,18 @@ public class CustomSet<T extends Comparable<T>> {
     }
 
     private Node remove(Node current, T item) {
-        if (current == null)
-            return null;
-        if (item.compareTo(current.data) < 0)
+        if (current.data.compareTo(item) > 0)
             current.left = remove(current.left, item);
-        else if (item.compareTo(current.data) > 0)
+        else if (current.data.compareTo(item) < 0)
             current.right = remove(current.right, item);
         else {
-            if (current.right == null && current.left == null)
-                return null;
-            else if (current.right == null || current.left == null) {
-                Node temp;
-                if (current.left == null)
-                    temp = current.right;
-                else
-                    temp = current.left;
-                return temp;
-            } else {
-                Node temp = findMinimum(current.right);
-                current.data = temp.data;
-                current.right = remove(current.right, temp.data);
-            }
+            if (current.left == null)
+                return current.right;
+            else if (current.right == null)
+                return current.left;
+            Node temp = findMinimum(current.right);
+            current.data = temp.data;
+            current.right = remove(current.right, current.data);
         }
         return current;
     }
