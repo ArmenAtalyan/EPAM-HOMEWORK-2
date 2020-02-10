@@ -14,11 +14,11 @@ public class Main {
             add(g2);
             add(g3);
         }};
-        glassList.remove(g2);
+//        glassList.remove(g2);
         glassList.printSet();
         System.out.println("Number of glasses is " + glassList.getSize());
+        System.out.println(glassList.containsItem(g1));
         System.out.println();
-//        System.out.println(glassList.containsItem(g3));
 
         Student s1 = new Student("Armen Khazaryan", 22);
         Student s2 = new Student("Vardan Aramyan", 19);
@@ -32,11 +32,11 @@ public class Main {
             add(s4);
             add(s5);
         }};
-        studentsList.remove(s3);
+        studentsList.remove(s1);
         studentsList.printSet();
         System.out.println("Number of students is " + studentsList.getSize());
+        System.out.println(studentsList.containsItem(s3));
         System.out.println();
-//        System.out.println(studentsList.containsItem(s2));
 
         Coffee c1 = new Coffee("Ethiopian", 3000);
         Coffee c2 = new Coffee("Colombian", 4500);

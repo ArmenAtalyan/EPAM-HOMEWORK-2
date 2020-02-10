@@ -72,7 +72,7 @@ public class CustomSet<T extends Comparable<T>> {
     }
 
     private boolean contains(Node current, T item) {
-        if (current.data == null)
+        if (current == null)
             return false;
         if (current.data.compareTo(item) == 0)
             return true;
